@@ -1,1 +1,13 @@
-<mxfile host="app.diagrams.net" modified="2023-09-13T04:19:36.839Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" version="20.4.1" etag="Bohr2dJ05TUj0VWuf4Ug" type="github"><diagram id="IOrSi7P8AckqnrU94ZSc">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2023-09-13T04:19:58.818Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" etag="_5DRNFs3NErJhZOY2Xsq" version="20.4.1" type="github">
+  <diagram id="IOrSi7P8AckqnrU94ZSc" name="Page-1">
+    <mxGraphModel dx="946" dy="645" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="yOW2F9D8Quu-nGm8h4rt-1" value="-------------------------------------&#xa;|        Express Application        |&#xa;|-----------------------------------|&#xa;|                                   |&#xa;| - Middleware                     |&#xa;| - Routes (user routes)           |&#xa;| - Error Handling                 |&#xa;| - Configuration (dotenv)         |&#xa;| - Database Connection (Mongoose) |&#xa;| - Server                          |&#xa;|                                   |&#xa;-------------------------------------&#xa;&#xa;&#xa;-------------------------------------&#xa;|            Controllers            |&#xa;|-----------------------------------|&#xa;|                                   |&#xa;| - UserController                  |&#xa;|   - getUser()                     |&#xa;|   - createUser()                  |&#xa;|   - updateUser()                  |&#xa;|   - deleteUser()                  |&#xa;|   - validateUser()                |&#xa;|                                   |&#xa;-------------------------------------&#xa;&#xa;&#xa;-------------------------------------&#xa;|             Models                |&#xa;|-----------------------------------|&#xa;|                                   |&#xa;| - User Model                      |&#xa;|   - name: String (required)       |&#xa;|   - save()                        |&#xa;|   - findByIdAndRemove()           |&#xa;|   - find()                        |&#xa;|   - findOneAndUpdate()            |&#xa;|                                   |&#xa;-------------------------------------" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="150" width="340" height="620" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
