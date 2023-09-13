@@ -55,10 +55,16 @@ const updateUser = async (req, res) => {
 
  //to delete an existing user
 const deleteUser = async (req, res) => {
-    const user = await User.findByIdAndRemove(req.params.id);
-    if (!user) return res.status(404).send("User not found")
-
-    res.send(user);
+    try {
+      const user = await User.findOneAndRemove(req.params.user_id);
+      if (!user) {
+        return res.status(404).send("User not found");
+      }
+      res.send(user);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Server error");
+    }
 };
 
 
