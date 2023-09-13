@@ -49,10 +49,7 @@ Clone the Repository
   
   .Configure the database connection in src/app.js. Replace MONGODB_URL with your actual MongoDB connection URL.
 
-      mongoose.connect('mongodb://localhost:27017/mydb', {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-      });
+      mongoose.connect('mongodb://localhost:27017/mydb');
       
   Be sure to update the connection URL to match your MongoDB setup.
 
@@ -62,9 +59,11 @@ Clone the Repository
 
 The API provides the following endpoints for managing users:
 
-**GET /api/users**: Retrieve a list of all users.
+**GET /api**: Retrieve a list of all users.
 
-**POST /api/users:** Create a new user.
+**GET /api/:user_id:** Retrieve details of a user by ID.
+
+**POST /api:** Create a new user.
 
   .Example Request Body:
   
@@ -72,7 +71,7 @@ The API provides the following endpoints for managing users:
         "name": "John Doe"
       }
       
-**PATCH /api/users/:user_id:** Update an existing user by ID.
+**PUT /api/:user_id:** Update an existing user by ID.
 
   .Example Request Body:
   
@@ -80,7 +79,7 @@ The API provides the following endpoints for managing users:
         "name": "Updated Name"
       }
     
-**DELETE /api/users/:user_id:** Delete a user by ID.
+**DELETE /api/:user_id:** Delete a user by ID.
 
 **Validation**
 
