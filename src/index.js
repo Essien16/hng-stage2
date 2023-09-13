@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 dotenv.config();
+const helmet = require("helmet");
 
 const database = process.env.MONGODB_URL_PROD;
 mongoose
@@ -10,6 +11,15 @@ mongoose
   .then(() => console.log("Database connected successfully."))
   .catch((error) => console.log(error));
 
+
+app.use(
+    helmet.contentSecurityPolicy({
+        directives: {
+            defaultSrc: ["'self"],
+            fontSrc: ["'self", "<URL>"]
+        }
+    })
+)  
 app.use(express.urlencoded({ extended: false}));
 app.use("/api", require("../src/routes/user"));
 
