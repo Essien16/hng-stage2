@@ -10,6 +10,19 @@ const getUser = async (req, res) => {
     res.json(user);
 }
 
+//to get a single user in the database
+const getUserById = async (req, res) => {
+     try {
+       const user = await User.findOne(req.params.userId);
+       if (!user) {
+         return res.status(404).json({ error: "User not found" });
+       };
+       res.json(user);
+     } catch (error) {
+       console.error(error);
+       res.status(500).send("Server error");
+     };
+};
 
 //to create a new user and throws an error if a user with the same name already exists.
 const createUser = async (req, res) => {
@@ -76,7 +89,8 @@ function validateUser(user) {
 }
 
 module.exports = {
-    getUser, 
+    getUser,
+    getUserById, 
     createUser, 
     updateUser, 
     deleteUser
