@@ -3,11 +3,15 @@ const Joi = require("joi");
 
 //to get all the users in the database
 const getUser = async (req, res) => {
-    const user = await User.find();
-    if (!user) {
+  try {
+    const users = await User.find({}, 'id name'); 
+    if (users.length === 0) {
       return res.status(404).json({ error: "User not found" });
     }
-    res.json(user);
+    res.json(users);
+  } catch (error) {
+    res.status(500).json({ error: "Internal server error" });
+  }
 }
 
 //to get a single user in the database
