@@ -30,21 +30,28 @@ const getUserById = async (req, res) => {
 
 //to create a new user and throws an error if a user with the same name already exists.
 const createUser = async (req, res) => {
-    try {
-        const existingUser = await User.findOne({ name: req.body.name });
-        if (existingUser) {
-          return res.status(400).send("User with the same name already exists.");
-        }
-        const { error } = validateUser(req.body);
-        if (error) return res.status(400).send(error.details[0].message);
-        let user = new User({
-            name: req.body.name
-        });
-        user = await user.save();
-        res.send(user);
-    } catch (error) {
-        res.status(500).send("An internal error occured on the server while creating the user.")
+  try {
+    const existingUser = await User.findOne({ name: req.body.name });
+    if (existingUser) {
+      return res.status(400).send("User with the same name already exists.");
+    }
+
+    const { error } = validateUser(req.body);
+    if (error) return res.status(400).send(error.details[0].message);
+
+    let user = new User({
+      name: req.body.name
+    });
+
+    user = await user.save();
+    const responseUser = {
+      id: user._id,
+      name: user.name
     };
+    res.send(responseUser);
+  } catch (error) {
+    res.status(500).send("An internal error occurred on the server while creating the user.");
+  }
 };
 
 //to update an existing user
