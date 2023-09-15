@@ -63,7 +63,7 @@ The API provides the following endpoints for managing users:
 
 **GET /api/:user_id:** Retrieve details of a user by ID.
 
-**POST /api:** Create a new user.
+**POST /api:** Create a new user.(use x-www-form-urlencoded to send your POST resquest)
 
   .Example Request Body:
   
