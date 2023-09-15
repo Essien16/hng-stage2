@@ -16,16 +16,16 @@ const getUser = async (req, res) => {
 
 //to get a single user in the database
 const getUserById = async (req, res) => {
-     try {
-       const user = await User.findOne(req.params.userId);
-       if (!user) {
-         return res.status(404).json({ error: "User not found" });
-       };
-       res.json(user);
-     } catch (error) {
-       console.error(error);
-       res.status(500).send("Server error");
-     };
+  try {
+    const user = await User.findOne({ _id: req.params.userId }, 'id name');
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+    res.json(user);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Server error");
+  }
 };
 
 //to create a new user and throws an error if a user with the same name already exists.
