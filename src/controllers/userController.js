@@ -61,7 +61,7 @@ const updateUser = async (req, res) => {
 
   try {
     const user = await User.findOneAndUpdate(
-      req.params.userId,
+      { _id: req.params.userId }, 
       { name: req.body.name },
       { new: true }
     );
@@ -69,8 +69,12 @@ const updateUser = async (req, res) => {
     if (!user) {
       return res.status(404).send("User not found");
     }
+    const responseUser = {
+      id: user._id,
+      name: user.name
+    };
 
-    res.send(user);
+    res.send(responseUser);
   } catch (err) {
     console.error(err);
     res.status(500).send("Server error");
