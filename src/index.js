@@ -14,20 +14,7 @@ mongoose
   .catch((error) => console.log(error));
 
 
-app.use(
-    helmet.contentSecurityPolicy({
-        directives: {
-            defaultSrc: ["'self"],
-            fontSrc: ["'self", "<URL>"]
-        }
-    })
-)  
-// app.use(
-//   helmet({
-//     contentSecurityPolicy: false,
-//     xDownloadOptions: false,
-//   })
-// );
+app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
 app.use("/api", require("../src/routes/user"));
 
