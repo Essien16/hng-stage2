@@ -8,7 +8,7 @@ const helmet = require("helmet");
 const database = process.env.MONGODB_URL_PROD;
 mongoose
   .connect(
-    "mongodb+srv://essienjustice:Theunicorn@cluster0.jycmomc.mongodb.net/?retryWrites=true&w=majority"
+    database
   )
   .then(() => console.log("Database connected successfully."))
   .catch((error) => console.log(error));
